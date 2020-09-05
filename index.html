@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conway's Game Of Life GPU</title>
 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gpu.js@latest/dist/gpu-browser.min.js"></script>
 
@@ -14,8 +18,48 @@
 
 <body>
 
+  <script src="./gpuKernel.js"></script>
   <script src="./index.js"></script>
 
+  <div class="hud">
+
+    <header>
+      <h1>Conway's Game Of Life - GPU</h1>
+      <br>
+      <h4>Simulação massiva na placa de vídeo. Por favor utilize um chip gráfico atual e ative aceleração por hardware
+        no seu
+        navegador.</h2>
+    </header>
+
+    <div class="configs">
+
+      <div class="velocity">
+        <p></p>
+        <input type="range" id="velocity" min='1' max='500' value='100'>
+        <button id="pause">Pausar/Despausar</button>
+      </div>
+
+      <br>
+
+      <div class="draw-radius">
+        <p></p>
+        Simetria
+        <select id="draw-type">
+          <option value="four">Quádruplo</option>
+          <option value="two">Duplo</option>
+          <option value="normal">Normal</option>
+        </select>
+        <input type="range" id="draw-radius" min='1' max='30' value='5'>
+        <button id="clean">Limpar desenho</button>
+      </div>
+
+    </div>
+
+    <footer>
+      <h2>Made by <a href="https://www.linkedin.com/in/maicon-moreira-38ab691a4/">Maicon</a> with ❤️</h2>
+    </footer>
+
+  </div>
 </body>
 
 </html>
