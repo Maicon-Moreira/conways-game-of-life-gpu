@@ -17,38 +17,3 @@ function draw() {
 
   drawSimulation()
 }
-
-function randomInt(a, b = 0) {
-  return Math.floor(a + (b - a) * Math.random())
-}
-
-function initialize() {
-  clean()
-
-  for (let i = 0; i < numRandom; i++) {
-    const x = randomInt(...randomRange[0])
-    const y = randomInt(...randomRange[1])
-
-    data[x][y] = 1
-  }
-
-
-
-  simulateFunction()
-}
-
-function simulateFunction() {
-  if (!paused)
-    data = simulate(data, gridSize, liveRules, deadRules)
-
-  setTimeout(simulateFunction, 1000 / velocity)
-}
-
-function clean() {
-  for (let x = 0; x < gridSize; x++) {
-    data[x] = []
-    for (let y = 0; y < gridSize; y++) {
-      data[x][y] = 0
-    }
-  }
-}
